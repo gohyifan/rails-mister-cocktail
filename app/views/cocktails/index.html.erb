@@ -7,13 +7,12 @@
 <div class="container my-3 text-center">
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
-      <%= link_to cocktail do  %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
-          <%= cocktail.name %>
-
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo, crop: :fill %>')">
+          <%= link_to cocktail do  %>
+            <%= cocktail.name %>
+          <% end %>
           <%= link_to "+", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "card-btn card-link-remove" %>
         </div>
-      <% end %>
     <% end %>
   </div>
   <%= link_to 'Add a new cocktail', new_cocktail_path, class: 'btn btn-danger btn-lg btn-block my-3' %>
