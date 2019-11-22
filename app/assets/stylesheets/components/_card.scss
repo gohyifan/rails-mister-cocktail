@@ -11,4 +11,31 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+// .card-link-add {
+//   left: 10px;
+//   top: 10px;
+//   opacity: 0.8;
+//   font-weight: lighter;
+//   &:hover {
+//     color: white;
+//     text-decoration: none;
+//     opacity: 1;
+//   }
+// }
+
+.card-link-remove {
+  right: 10px;
+  top: 10px;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  font-weight: lighter;
+  position: absolute;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+  }
 }
