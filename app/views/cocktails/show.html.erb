@@ -1,0 +1,34 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.image_url %>);">
+  <div class="container text-center">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>
+        <%= dose.description %> : <%= dose.ingredient.name %>
+        <%= link_to "Delete", delete_doses_path(dose), method: :delete  %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.input :description  %>
+  <%= f.association :ingredient %>
+  <%= f.submit 'Add Dose', class: 'btn btn-danger' %>
+  <% end %>
+</div>
+
+
+<%= link_to 'Home', cocktails_path, class:'btn btn-danger'  %>
+
+
+<!-- # we need to see ingredient and dose pairs per cocktail
+
+G&T
+gin - 1/2 part
+tonic - 1/2 part
+lime - 1 wedge -->
+
